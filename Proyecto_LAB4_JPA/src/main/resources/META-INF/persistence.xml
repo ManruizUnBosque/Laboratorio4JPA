@@ -6,7 +6,7 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
 	<persistence-unit name="Persistencia">
-	<class>unbosque.ejemplobd.hibernate.modelo.Cliente</class>
+		<class>unbosque.ejemplobd.hibernate.modelo.Cliente</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clientes" />
