@@ -6,10 +6,10 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
 	<persistence-unit name="Persistencia">
-		<class>unbosque.ejemplobd.hibernate.modelo.Cliente</class>
+		<class>unbosque.ejemplobd.hibernate.modelo.Sucursal</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clientes" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/farmacia" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="Var23384" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
