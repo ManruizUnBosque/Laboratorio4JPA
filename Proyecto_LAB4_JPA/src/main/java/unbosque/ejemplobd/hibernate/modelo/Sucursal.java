@@ -1,13 +1,12 @@
 package unbosque.ejemplobd.hibernate.modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "sucursal ")
+@Table(name = "Sucursal ")
 public class Sucursal implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,13 +27,14 @@ public class Sucursal implements Serializable {
 	@Column(name = "Jefe")
 	private String jefe;
 
-	/*
-	 * @OneToMany(mappedBy="sucursal", cascade = CascadeType.ALL) private
-	 * List<Empleado> Empleado = new ArrayList<>();
-	 * 
-	 * @OneToMany(mappedBy="sucursal", cascade = CascadeType.ALL) private
-	 * List<Medicamento_sucursal> Medicamento_sucursal = new ArrayList<>();
-	 */
+	
+	 @OneToMany
+	 @JoinColumn(name="id_Sucursal")
+	 private List<Empleado> empleados;
+	 @OneToMany
+	 @JoinColumn(name="id_Sucursal")
+	 private List<Medicamento_sucursal> medicamentos;
+	  
 
 	public Sucursal() {
 

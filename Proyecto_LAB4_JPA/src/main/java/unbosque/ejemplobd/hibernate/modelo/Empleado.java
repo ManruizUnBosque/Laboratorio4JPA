@@ -1,36 +1,37 @@
 package unbosque.ejemplobd.hibernate.modelo;
+
 import javax.persistence.*;
 
-
 @Entity
-@Table (name="empleado")
+@Table(name = "empleado")
 public class Empleado {
-	
+
 	@Id
-	@Column(name="id_empleado")
+	@Column(name = "id_empleado")
 	private String idempleado;
-	
-	@Column(name="Nombre")
+
+	@Column(name = "Nombre")
 	private String nombre;
-	
-	@Column(name="Fecha_Nac")
+
+	@Column(name = "Fecha_Nac")
 	private String fechanac;
 
-	@Column(name="Identificacion")
+	@Column(name = "Identificacion")
 	private String identificacion;
 
-	@Column(name="Salario")
+	@Column(name = "Salario")
 	private String salario;
 
-	@Column(name="id_Sucursal")
-	private String idsucursal;
-	
-	/*@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_Sucursal")	
-	private Sucursal sucursal;*/
-	
+	/*
+	 * @Column(name="id_Sucursal") private String idsucursal;
+	 */
+
+	@ManyToOne
+	@JoinColumn(name = "id_Sucursal", nullable=false)
+	private Sucursal id_Sucursal;
+
 	public Empleado() {
-		
+
 	}
 
 	public Empleado(String idempleado, String nombre, String fechanac, String identificacion, String salario,
@@ -40,7 +41,7 @@ public class Empleado {
 		this.fechanac = fechanac;
 		this.identificacion = identificacion;
 		this.salario = salario;
-		this.idsucursal = idsucursal;
+
 	}
 
 	public String getIdempleado() {
@@ -83,21 +84,10 @@ public class Empleado {
 		this.salario = salario;
 	}
 
-	public String getIdsucursal() {
-		return idsucursal;
-	}
+	/*
+	 * public Sucursal getSucursal() { return sucursal; }
+	 * 
+	 * public void setSucursal(Sucursal sucursal) { this.sucursal = sucursal; }
+	 */
 
-	public void setIdsucursal(String idsucursal) {
-		this.idsucursal = idsucursal;
-	}
-
-	/*public Sucursal getSucursal() {
-		return sucursal;
-	}
-
-	public void setSucursal(Sucursal sucursal) {
-		this.sucursal = sucursal;
-	}
-	*/
-	
 }

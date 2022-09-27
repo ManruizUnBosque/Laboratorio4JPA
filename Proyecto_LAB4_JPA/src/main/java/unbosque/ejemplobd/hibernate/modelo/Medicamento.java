@@ -1,11 +1,10 @@
 package unbosque.ejemplobd.hibernate.modelo;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-@Table (name="medicamento")
+@Table (name="Medicamento")
 public class Medicamento {
 
 	@Id
@@ -20,6 +19,10 @@ public class Medicamento {
 
 	@Column(name="Laboratorio")
 	private String laboratorio;
+	
+	 @OneToMany
+	 @JoinColumn(name="id_Medicamento")
+	 private List<Medicamento_sucursal> medicamentos;
 	
 	/*@OneToMany(mappedBy="medicamento", cascade = CascadeType.ALL)
 	private List<Medicamento_sucursal> Medicamento_sucursal = new ArrayList<>();*/
