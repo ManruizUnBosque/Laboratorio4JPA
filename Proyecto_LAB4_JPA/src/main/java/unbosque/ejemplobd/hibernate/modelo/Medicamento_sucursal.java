@@ -5,49 +5,26 @@ import javax.persistence.*;
 @Table (name="medicamento_sucursal")
 public class Medicamento_sucursal {
 	
-	@Column(name="id_Medicamento")
-	private String idmedicamento;
-	
-	@Column(name="id_Sucursal")
-	private String idsucursal;
-	
-	@Id
 	@Column(name="Cantidad")
 	private String cantidad;
 
-	/*@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_Sucursal")
-	private Sucursal sucursal;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_Medicamento")
-	private Medicamento medicamento;*/
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_Sucursal", nullable=false)
+	private Sucursal id_sucursal;
+	@ManyToOne
+	@JoinColumn(name="id_Medicamento", nullable=false)
+	private Medicamento id_medicamento;
 	
 	public Medicamento_sucursal() {
 		
 	}
 	
-	public Medicamento_sucursal(String idmedicamento, String idsucursal, String cantidad) {
-		this.idmedicamento = idmedicamento;
-		this.idsucursal = idsucursal;
+	public Medicamento_sucursal(String cantidad) {
+
 		this.cantidad = cantidad;
 	}
 
-	public String getIdmedicamento() {
-		return idmedicamento;
-	}
-
-	public void setIdmedicamento(String idmedicamento) {
-		this.idmedicamento = idmedicamento;
-	}
-
-	public String getIdsucursal() {
-		return idsucursal;
-	}
-
-	public void setIdsucursal(String idsucursal) {
-		this.idsucursal = idsucursal;
-	}
 
 	public String getCantidad() {
 		return cantidad;
@@ -57,20 +34,20 @@ public class Medicamento_sucursal {
 		this.cantidad = cantidad;
 	}
 
-	/*public Sucursal getSucursal() {
-		return sucursal;
+	public Sucursal getId_sucursal() {
+		return id_sucursal;
 	}
 
-	public void setSucursal(Sucursal sucursal) {
-		this.sucursal = sucursal;
+	public void setId_sucursal(Sucursal id_sucursal) {
+		this.id_sucursal = id_sucursal;
 	}
 
-	public Medicamento getMedicamento() {
-		return medicamento;
+	public Medicamento getId_medicamento() {
+		return id_medicamento;
 	}
 
-	public void setMedicamento(Medicamento medicamento) {
-		this.medicamento = medicamento;
+	public void setId_medicamento(Medicamento id_medicamento) {
+		this.id_medicamento = id_medicamento;
 	}
-	*/
+
 }

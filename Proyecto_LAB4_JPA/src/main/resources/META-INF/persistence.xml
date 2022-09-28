@@ -7,13 +7,16 @@
 
 	<persistence-unit name="Persistencia">
 		<class>unbosque.ejemplobd.hibernate.modelo.Sucursal</class>
+		<class>unbosque.ejemplobd.hibernate.modelo.Empleado</class>
+		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/farmacia" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="Var23384" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/farmacia" />
+			<property name="javax.persistence.jdbc.user" value="rooot" />
+			<property name="javax.persistence.jdbc.password" value="tooor" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>
+
