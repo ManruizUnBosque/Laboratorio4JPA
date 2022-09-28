@@ -1,31 +1,34 @@
 package unbosque.ejemplobd.hibernate.modelo;
+
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-@Table (name="Medicamento")
+@Table(name = "Medicamento")
 public class Medicamento {
 
 	@Id
-	@Column(name="id_Medicamento")
+	@Column(name = "id_Medicamento")
 	private String idmedicamento;
-	
-	@Column(name="Nombre")
+
+	@Column(name = "Nombre")
 	private String nombre;
-	
-	@Column(name="Presentacion")
+
+	@Column(name = "Presentacion")
 	private String presentacion;
 
-	@Column(name="Laboratorio")
+	@Column(name = "Laboratorio")
 	private String laboratorio;
 	
-	 @OneToMany
-	 @JoinColumn(name="id_Medicamento")
-	 private List<Medicamento_sucursal> medicamentos;
-	
-	/*@OneToMany(mappedBy="medicamento", cascade = CascadeType.ALL)
-	private List<Medicamento_sucursal> Medicamento_sucursal = new ArrayList<>();*/
+	@OneToMany
+	@JoinColumn(name="id_Medicamento")
+	private List<Medicamento_sucursal> medicamentos;
+
+	/*
+	 * @OneToMany(mappedBy="medicamento", cascade = CascadeType.ALL) private
+	 * List<Medicamento_sucursal> Medicamento_sucursal = new ArrayList<>();
+	 */
 
 	public Medicamento(String idmedicamento, String nombre, String presentacion, String laboratorio) {
 		this.idmedicamento = idmedicamento;
@@ -33,9 +36,9 @@ public class Medicamento {
 		this.presentacion = presentacion;
 		this.laboratorio = laboratorio;
 	}
-	
+
 	public Medicamento() {
-		
+
 	}
 
 	public String getIdmedicamento() {
@@ -70,13 +73,12 @@ public class Medicamento {
 		this.laboratorio = laboratorio;
 	}
 
-	/*public List<Medicamento_sucursal> getMedicamento_sucursal() {
-		return Medicamento_sucursal;
-	}
+	/*
+	 * public List<Medicamento_sucursal> getMedicamento_sucursal() { return
+	 * Medicamento_sucursal; }
+	 * 
+	 * public void setMedicamento_sucursal(List<Medicamento_sucursal>
+	 * medicamento_sucursal) { Medicamento_sucursal = medicamento_sucursal; }
+	 */
 
-	public void setMedicamento_sucursal(List<Medicamento_sucursal> medicamento_sucursal) {
-		Medicamento_sucursal = medicamento_sucursal;
-	}
-	*/
-	
 }

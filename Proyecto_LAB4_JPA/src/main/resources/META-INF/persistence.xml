@@ -8,6 +8,7 @@
 	<persistence-unit name="Persistencia">
 		<class>unbosque.ejemplobd.hibernate.modelo.Sucursal</class>
 		<class>unbosque.ejemplobd.hibernate.modelo.Empleado</class>
+		<class>unbosque.ejemplobd.hibernate.modelo.Medicamento_sucursal</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />

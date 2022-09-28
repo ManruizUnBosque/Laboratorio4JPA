@@ -32,11 +32,10 @@ public class Sucursal implements Serializable {
 	 @JoinColumn(name="id_Sucursal")
 	 private List<Empleado> empleados;
 	 
-	/*
+	
 	 @OneToMany
 	 @JoinColumn(name="id_Sucursal")
 	 private List<Medicamento_sucursal> medicamentos;
-	  */
 
 	public Sucursal() {
 
