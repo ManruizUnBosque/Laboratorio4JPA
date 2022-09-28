@@ -1,5 +1,7 @@
 package unbosque.ejemplobd.hibernate.modelo;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +16,8 @@ public class Empleado {
 	private String nombre;
 
 	@Column(name = "Fecha_Nac")
-	private String fechanac;
+	@Temporal(TemporalType.DATE)
+	private Date fechanac;
 
 	@Column(name = "Identificacion")
 	private String identificacion;
@@ -27,20 +30,21 @@ public class Empleado {
 	 */
 
 	@ManyToOne
-	@JoinColumn(name = "id_Sucursal", nullable=false)
+	@JoinColumn(name = "id_Sucursal", nullable = false)
 	private Sucursal id_Sucursal;
 
 	public Empleado() {
 
 	}
 
-	public Empleado(String idempleado, String nombre, String fechanac, String identificacion, String salario,
-			String idsucursal) {
+	public Empleado(String idempleado, String nombre, Date fechanac, String identificacion, String salario,
+			Sucursal id_sucursal) {
 		this.idempleado = idempleado;
 		this.nombre = nombre;
 		this.fechanac = fechanac;
 		this.identificacion = identificacion;
 		this.salario = salario;
+		this.id_Sucursal = id_sucursal;
 
 	}
 
@@ -60,11 +64,11 @@ public class Empleado {
 		this.nombre = nombre;
 	}
 
-	public String getFechanac() {
+	public Date getFechanac() {
 		return fechanac;
 	}
 
-	public void setFechanac(String fechanac) {
+	public void setFechanac(Date fechanac) {
 		this.fechanac = fechanac;
 	}
 
