@@ -15,7 +15,6 @@ import unbosque.ejemplobd.hibernate.modelo.Sucursal;
 public class Gestor {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistencia");
-	private static EntityManager gestor;
 
 	public static void main(String[] args) {
 		insertarSucursal();
@@ -25,11 +24,9 @@ public class Gestor {
 
 	private static void insertarEmpleado() {
 		try {
-			gestor = emf.createEntityManager();
+			EntityManager gestor = emf.createEntityManager();
 
 			Sucursal sucursal = getSucursal().get(0);
-			// Sucursal sucursal = new Sucursal("Bog01", "calle 60a", "Lunes-viernes",
-			// "Bogota", "Aura");
 			Empleado empleado = new Empleado("AC001", "Nigger", new SimpleDateFormat("yyyy-MM-dd").parse("1999-05-08"),
 					"11564897", "99.05", sucursal);
 
@@ -47,7 +44,7 @@ public class Gestor {
 
 	private static void insertarSucursal() {
 		try {
-			gestor = emf.createEntityManager();
+			EntityManager gestor = emf.createEntityManager();
 
 			Sucursal sucursal = new Sucursal("Bog01", "calle 60a", "Lunes-viernes", "Bogota", "Aura");
 

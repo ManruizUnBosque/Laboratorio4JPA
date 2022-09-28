@@ -25,10 +25,6 @@ public class Empleado {
 	@Column(name = "Salario")
 	private String salario;
 
-	/*
-	 * @Column(name="id_Sucursal") private String idsucursal;
-	 */
-
 	@ManyToOne
 	@JoinColumn(name = "id_Sucursal", nullable = false)
 	private Sucursal id_Sucursal;
