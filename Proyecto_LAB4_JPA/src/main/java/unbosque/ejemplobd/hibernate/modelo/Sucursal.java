@@ -7,6 +7,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Sucursal ")
+@NamedQueries({
+@NamedQuery(name="Sucursal.ciudad", query="SELECT S FROM Sucursal S WHERE S.ciudad=:CIUDAD")
+})
 public class Sucursal implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,15 +30,13 @@ public class Sucursal implements Serializable {
 	@Column(name = "Jefe")
 	private String jefe;
 
-	
-	 @OneToMany
-	 @JoinColumn(name="id_Sucursal")
-	 private List<Empleado> empleados;
-	 
-	
-	 @OneToMany
-	 @JoinColumn(name="id_Sucursal")
-	 private List<Medicamento_sucursal> medicamentos;
+	@OneToMany
+	@JoinColumn(name = "id_Sucursal")
+	private List<Empleado> empleados;
+
+	@OneToMany
+	@JoinColumn(name = "id_Sucursal")
+	private List<Medicamento_sucursal> medicamentos;
 
 	public Sucursal() {
 
