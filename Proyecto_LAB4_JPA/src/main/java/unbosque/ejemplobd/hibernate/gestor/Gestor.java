@@ -20,6 +20,22 @@ public class Gestor {
 		insertarSucursal();
 		insertarEmpleado();
 		imprimirTodo();
+		List<Sucursal> result = sucursalesPorCiudad("Bogota");
+		for (Sucursal a : result) {
+			System.out.println(a.getCiudad()+", "+a.getIdsucursal()+", "+a.getHorario()+", "+a.getJefe()+", "+a.getDireccion());
+		}
+	}
+
+	public static List<Sucursal> sucursalesPorCiudad(String ciudad) {
+		EntityManager gestor = emf.createEntityManager();
+		try {
+			List<Sucursal> sucursales = gestor.createNamedQuery("Sucursal.ciudad", Sucursal.class)
+					.setParameter("CIUDAD", ciudad).getResultList();
+			gestor.close();
+			return sucursales;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	private static void insertarEmpleado() {
@@ -73,9 +89,6 @@ public class Gestor {
 		List<Sucursal> sucursal = (List<Sucursal>) gestor.createQuery("FROM Sucursal").getResultList();
 		List<Empleado> empleado = (List<Empleado>) gestor.createQuery("FROM Empleado").getResultList();
 		System.out.println("En la base de datos hay " + sucursal.size() + " sucursales.");
-		for (Empleado e : empleado) {
-			System.out.println(e.toString());
-		}
 
 		System.out.println("En la base de datos hay " + empleado.size() + " empleados.");
 
